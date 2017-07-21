@@ -7,72 +7,19 @@ $this->load->view('template/sidebar');
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        TAMBAH TRANSAKSI 
+        TAMBAH DAFTAR TRANSAKSI 
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li class="active">Transaksi</li>
         <li class="active">Tambah Transaksi</li> 
     </ol>
+    <div class="form-group" field-user>
 
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">Input Outcome</h3>
-        </div>
-        <form action="<?php echo base_url('C_transaksi/outcome');?> " method="post">
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-12">
-              <!-- tanggal -->
-              <div class="form-group">
-                <label>Tanggal</label>
-                <input type="text"  name="tanggal" id="datepicker" class="form-control" >
-              </div>
-                <script>
-                    $(function() {
-                    $( "#datepicker" ).datepicker();
-                  });
-                </script>
-              <!-- ID member-->
-              <div class="form-group">
-                <label>ID member</label>
-                <select class="form-control select2" style="width: 100%;" name="id_member">
-                  <?php
-                  foreach ($financial as $idmember) {
-                      echo "<option value='".$idmember['id_member']."'>".$idmember['nama']."</option>";
-                  }
-                  ?>
-                </select>
-              </div>
-              <!-- /.form group ID member -->
-              <div class="form-group">
-                <label>Kategori</label>
-                <select class="form-control select2" style="width: 100%;" name="id_kategori">
-                <?php
-                  foreach ($kategori as $kategori) {
-                      echo "<option value='".$kategori['id_kategori']."'>".$kategori['nama_kategori']."</option>";
-                  }
-                  ?>
-                </select>
-              </div>
-              <!-- jumlah-->
-              <div class="form-group">
-                <label>Jumlah Transaksi</label>
-                <input name="jml_transaksi" type="text" class="form-control">
-              </div>
-              <!-- keterangan-->
-              <div class="form-group">
-                <label>Keterangan</label>
-                <input name="keterangan" type="text" class="form-control">
-              </div>
-              <p>
-              <button class="btn btn-success btn-pull-right" type="submit" value="submit" name="submit">Simpan</button>
-              </p>
-            </div>
-          </div>
-        </div>
-        </form>
-      </div>
+<?php
+echo "ini halaman untuk tambah data";
+?>
+
 </section>
 
 <?php

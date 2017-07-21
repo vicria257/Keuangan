@@ -18,6 +18,9 @@ $this->load->view('template/sidebar');
     <section class="content">
           <div class="row">
             <div class="col-md-12">
+            <p>
+            <a class="btn btn-success" href="<?php echo base_url('C_transaksi/tambah')?>" type="submit">Tambah transaksi</a>
+            </p>
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Daftar Transaksi</h3>
@@ -25,7 +28,7 @@ $this->load->view('template/sidebar');
                 <div class="box-body">
                   <table class="table table-bordered">
                     <tr>
-                      <!-- <th style="width: 10px">ID</th> -->
+                      <th style="width: 10px">ID</th>
                       <th>Tanggal</th>
                       <th>ID_member</th>
                       <th>Kategori</th>
@@ -38,14 +41,16 @@ $this->load->view('template/sidebar');
                   $id_transaksi=1;
                   foreach ($financial as $transaksi) {
                     echo "<tr>";
-                    //echo '<td>'.$transaksi['id_transaksi']."</td>";
+                    echo '<td>'.$transaksi['id_transaksi']."</td>";
                     echo '<td>'.$transaksi['tanggal']."</td>";
                     echo '<td>'.$transaksi['id_member']."</td>";
                     echo '<td>'.$transaksi['id_kategori']."</td>";
                     echo '<td>'.$transaksi['tipe']."</td>";
                     echo '<td>'.$transaksi['jml_transaksi']."</td>";
                     echo '<td>'.$transaksi['keterangan']."</td>";
-                    echo "<td><a href='".base_url()."C_transaksi/edit/".$transaksi['id_transaksi']."' class='btn btn-info btn-xs'><span class='glyphicon glyphicon-edit'></span>Edit <a href='".base_url()."C_transaksi/hapus/".$transaksi['id_transaksi']."' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Del</a></td>";
+                    //echo '<td>'.anchor('buku/edit/'.$buku['idNovel'],'Edit')."</td>";
+                    //echo '<td><a data-toggle="modal" id="test" data-target="#m_delete" data-href="'.base_url()."buku/hapus/".$buku['idNovel'].'"> Hapus</td>';
+                    //echo '<td>'.anchor('buku/hapus/'.$buku['idNovel'],'Hapus')."</td>";
                     echo "</tr>";
 
                   }
