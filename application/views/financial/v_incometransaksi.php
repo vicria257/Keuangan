@@ -5,58 +5,75 @@ $this->load->view('template/sidebar');
 ?>
 
 <!-- Content Header (Page header) -->
-<section class="content-header">
+    <section class="content-header">
     <h1>
-        TRANSAKSI 
-        <small>Daftar Transaksi</small>
+        TAMBAH TRANSAKSI 
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li class="active">Transaksi</li>
+        <li class="active">Tambah Transaksi</li> 
     </ol>
-  	<!-- Main content -->
-    <section class="content">
+
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title">Input Income</h3>
+        </div>
+        <form action="<?php echo base_url('C_transaksi/income');?> " method="post">
+        <!-- /.box-header -->
+        <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <div class="box">
-                <div class="box-header">
-                  <h3 class="box-title">Daftar Transaksi</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <table class="table table-bordered">
-                    <tr>
-                      <!-- <th style="width: 10px">ID</th> -->
-                      <th>Tanggal</th>
-                      <th>ID_member</th>
-                      <th>Kategori</th>
-                      <th>Type</th>
-                      <th>Jumlah</th>
-                      <th>Keterangan</th>
-                      <th>Action</th>
-                    </tr>
-                    <?php  
-                  $id_transaksi=1;
-                  foreach ($financial as $transaksi) {
-                    echo "<tr>";
-                    //echo '<td>'.$transaksi['id_transaksi']."</td>";
-                    echo '<td>'.$transaksi['tanggal']."</td>";
-                    echo '<td>'.$transaksi['id_member']."</td>";
-                    echo '<td>'.$transaksi['id_kategori']."</td>";
-                    echo '<td>'.$transaksi['tipe']."</td>";
-                    echo '<td>'.$transaksi['jml_transaksi']."</td>";
-                    echo '<td>'.$transaksi['keterangan']."</td>";
-                    echo "<td><a href='".base_url()."C_transaksi/edit/".$transaksi['id_transaksi']."' class='btn btn-info btn-xs'><span class='glyphicon glyphicon-edit'></span>Edit <a href='".base_url()."C_transaksi/hapus/".$transaksi['id_transaksi']."' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Del</a></td>";
-                    echo "</tr>";
-
+              <!-- tanggal -->
+              <div class="form-group">
+                <label>Tanggal</label>
+                <input type="text"  name="tanggal" id="datepicker" class="form-control" >
+              </div>
+                <script>
+                    $(function() {
+                    $( "#datepicker" ).datepicker();
+                  });
+                </script>
+              <!-- ID member-->
+              <div class="form-group">
+                <label>ID member</label>
+                <select class="form-control select2" style="width: 100%;" name="id_member">
+                  <?php
+                  foreach ($financial as $idmember) {
+                      echo "<option value='".$idmember['id_member']."'>".$idmember['nama']."</option>";
                   }
                   ?>
-                  </table>
-              	</div><!-- /.box -->
-    			</div>
-    		  </div>
-    		</div>
+                </select>
+              </div>
+              <!-- /.form group ID member -->
+              <div class="form-group">
+                <label>Kategori</label>
+                <select class="form-control select2" style="width: 100%;" name="id_kategori">
+                <?php
+                  foreach ($kategori as $kategori) {
+                      echo "<option value='".$kategori['id_kategori']."'>".$kategori['nama_kategori']."</option>";
+                  }
+                  ?>
+                </select>
+              </div>
+              <!-- jumlah-->
+              <div class="form-group">
+                <label>Jumlah Transaksi</label>
+                <input name="jml_transaksi" type="text" class="form-control">
+              </div>
+              <!-- keterangan-->
+              <div class="form-group">
+                <label>Keterangan</label>
+                <input name="keterangan" type="text" class="form-control">
+              </div>
+              <p>
+              <button class="btn btn-success btn-pull-right" type="submit" value="submit" name="submit">Simpan</button>
+              </p>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
     </section>
-</section>
 
 <?php
 $this->load->view('template/js');
